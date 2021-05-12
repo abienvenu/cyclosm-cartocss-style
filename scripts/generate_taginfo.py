@@ -23,7 +23,7 @@ OSM2PGSQL_TAGS = [
     'name', 'natural', 'office', 'oneway', 'operator', 'place', 'population',
     'power', 'power_source', 'public_transport', 'railway', 'ref',
     'religion', 'route', 'service', 'shop', 'sport', 'surface', 'toll',
-    'tourism', 'tower:type', 'tracktype', 'tunnel', 'water', 'waterway',
+    'tourism', 'tower:type', 'tracktype', 'smoothness', 'incline', 'tunnel', 'water', 'waterway',
     'wetland', 'width', 'wood'
 ]
 
