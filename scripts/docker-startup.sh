@@ -50,6 +50,7 @@ EOF
   -c \
   -G \
   --drop \
+  --style openstreetmap-onewheel.style \
   $OSM2PGSQL_DATAFILE
   ;;
 
