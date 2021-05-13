@@ -38,7 +38,7 @@
 @wooded:            #95bd84;
 @heath:             #b2c068;
 @scrub:             #c8d7ab;
-@farmland:          #fbf0e3;
+@farmland:          #fcf6ed;
 @water:             #8ecbeb;
 @glacier:           #ddecec;
 @religious:         #ded4b2;
