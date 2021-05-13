@@ -74,6 +74,11 @@
 // * border, on one side (first line is drawn with a width of way with + 2 *
 // * border_width).
 
+// Onewheel tracks
+@green: #2ecc71;
+@blue: #3498db;
+@red: #e74c3c;
+@black: #17202a;
 
 // -- Zoom 11 --
 // Width of ways
@@ -3673,6 +3678,31 @@
   }
 }
 
+#roads_high::onewheel[smoothness!=null][zoom>=15]
+{
+  [type='unclassified'],
+  [type='service'],
+  [type='track'],
+  [type='bridleway'],
+  [type='footway'],
+  [type='path'],
+  [type='cycleway']
+  {
+    line-width: @rdz18_path*2;
+	[smoothness='excellent'],[smoothness='good'] {
+        line-color: @green;
+    }
+	[smoothness='intermediate'],[smoothness='bad'] {
+        line-color: @blue;
+    }
+	[smoothness='very_bad'] {
+        line-color: @red;
+    }
+	[smoothness='horrible'] {
+        line-color: @black;
+    }
+  }
+}
 
 #roads_high::rail_line[zoom>=11],
 #bridge::rail_line[zoom>=11] {

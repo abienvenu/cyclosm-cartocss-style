@@ -811,7 +811,10 @@ Layer:
             WHEN highway='cycleway' OR (highway IN ('path', 'footway', 'pedestrian', 'bridleway') AND bicycle IN ('yes', 'designated')) THEN CASE WHEN layer~E'^\\d+$' THEN 100*layer::integer+99 ELSE 99 END
             WHEN highway IN ('path', 'footway', 'pedestrian', 'bridleway') THEN CASE WHEN layer~E'^\\d+$' THEN 100*layer::integer+98 ELSE 98 END
             ELSE z_order
-          END AS z_order
+          END AS z_order,
+          surface,
+          smoothness,
+          incline
         FROM planet_osm_line
         WHERE (highway IS NOT NULL OR railway IN ('light_rail', 'subway', 'narrow_gauge', 'rail', 'tram'))
           AND (tunnel IS NULL OR tunnel = 'no')
