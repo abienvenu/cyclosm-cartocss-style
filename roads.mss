@@ -3688,6 +3688,34 @@
   [onewheel='expert'] {
     line-color: #17202a;
   }
+
+  [incline='10%'],[incline='15%'],[incline='20%'],[incline='-10%'],[incline='-15%'],[incline='-20%'] {
+    marker-placement: line;
+    marker-spacing: (2 * @rdz18_primary);
+    marker-width: @rdz18_primary;
+    [onewheel='expert'] {
+      marker-fill: white;
+    }
+  }
+  [incline='10%'] {
+    marker-file: url(symbols/single-arrow-left.svg);
+  }
+  [incline='15%'] {
+    marker-file: url(symbols/double-arrow-left.svg);
+  }
+  [incline='20%'] {
+    marker-file: url(symbols/triple-arrow-left.svg);
+  }
+  [incline='-10%'] {
+    marker-file: url(symbols/single-arrow-right.svg);
+  }
+  [incline='-15%'] {
+    marker-file: url(symbols/double-arrow-right.svg);
+  }
+  [incline='-20%'] {
+    marker-file: url(symbols/triple-arrow-right.svg);
+  }
+
   [zoom>=11] { line-width: @rdz11_primary }
   [zoom>=12] { line-width: @rdz12_primary }
   [zoom>=13] { line-width: @rdz13_primary }
