@@ -3689,30 +3689,39 @@
     line-color: #17202a;
   }
 
-  [incline='10%'],[incline='15%'],[incline='20%'],[incline='-10%'],[incline='-15%'],[incline='-20%'] {
+  [incline=~'-?[1-9][0-9] ?[%°]'] {
     marker-placement: line;
     marker-spacing: (2 * @rdz18_primary);
-    marker-width: @rdz18_primary;
+
+	marker-height: (1.5 * @rdz11_primary);
+    [zoom>=12] { marker-height: (1.5 * @rdz12_primary); }
+    [zoom>=13] { marker-height: (1.5 * @rdz13_primary); }
+    [zoom>=14] { marker-height: (1.5 * @rdz14_primary); }
+    [zoom>=15] { marker-height: (1.5 * @rdz15_primary); }
+    [zoom>=16] { marker-height: (1.5 * @rdz16_primary); }
+    [zoom>=17] { marker-height: (1.5 * @rdz17_primary); }
+    [zoom>=18] { marker-height: (1.5 * @rdz18_primary); }
+
     [onewheel='expert'] {
       marker-fill: white;
     }
   }
-  [incline='10%'] {
+  [incline=~'1[0-4] ?[%°]'] {
     marker-file: url(symbols/single-arrow-left.svg);
   }
-  [incline='15%'] {
+  [incline=~'1[5-9] ?[%°]'] {
     marker-file: url(symbols/double-arrow-left.svg);
   }
-  [incline='20%'] {
+  [incline=~'[2-9][0-9] ?[%°]'] {
     marker-file: url(symbols/triple-arrow-left.svg);
   }
-  [incline='-10%'] {
+  [incline=~'-1[0-4] ?[%°]'] {
     marker-file: url(symbols/single-arrow-right.svg);
   }
-  [incline='-15%'] {
+  [incline=~'-1[5-9] ?[%°]'] {
     marker-file: url(symbols/double-arrow-right.svg);
   }
-  [incline='-20%'] {
+  [incline=~'-[2-9][0-9] ?[%°]'] {
     marker-file: url(symbols/triple-arrow-right.svg);
   }
 
