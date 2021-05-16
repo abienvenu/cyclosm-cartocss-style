@@ -808,19 +808,24 @@ Layer:
             ELSE NULL
           END AS mtb_scale_imba,
           CASE
-            WHEN highway IN ('service', 'cycleway') AND smoothness IS NULL
-              THEN 'beginner'
-            WHEN highway IN ('footway', 'path') AND surface IN ('asphalt', 'concrete') AND smoothness IS NULL
-              THEN 'beginner'
-            WHEN highway IN ('service', 'track', 'bridleway', 'footway', 'path', 'cycleway') AND smoothness IN ('excellent', 'good')
-              THEN 'beginner'
-            WHEN highway IN ('service', 'track', 'bridleway', 'footway', 'path', 'cycleway') AND smoothness IN ('intermediate', 'bad')
-              THEN 'easy'
-            WHEN highway IN ('service', 'track', 'bridleway', 'footway', 'path', 'cycleway') AND smoothness IN ('very_bad')
-              THEN 'intermediate'
-            WHEN highway IN ('service', 'track', 'bridleway', 'footway', 'path', 'cycleway') AND smoothness IN ('horrible')
-              THEN 'expert'
-            ELSE NULL
+            WHEN access IN ('no', 'private')
+              THEN NULL
+            ELSE
+            CASE
+              WHEN highway IN ('service', 'cycleway') AND smoothness IS NULL
+                THEN 'beginner'
+              WHEN highway IN ('footway', 'path') AND surface IN ('asphalt', 'concrete') AND smoothness IS NULL
+                THEN 'beginner'
+              WHEN highway IN ('service', 'track', 'bridleway', 'footway', 'path', 'cycleway') AND smoothness IN ('excellent', 'good')
+                THEN 'beginner'
+              WHEN highway IN ('service', 'track', 'bridleway', 'footway', 'path', 'cycleway') AND smoothness IN ('intermediate', 'bad')
+                THEN 'easy'
+              WHEN highway IN ('service', 'track', 'bridleway', 'footway', 'path', 'cycleway') AND smoothness IN ('very_bad')
+                THEN 'intermediate'
+              WHEN highway IN ('service', 'track', 'bridleway', 'footway', 'path', 'cycleway') AND smoothness IN ('horrible')
+                THEN 'expert'
+              ELSE NULL
+            END
           END AS onewheel,
           CASE
             WHEN highway='cycleway' OR (highway IN ('path', 'footway', 'pedestrian', 'bridleway') AND bicycle IN ('yes', 'designated')) THEN CASE WHEN layer~E'^\\d+$' THEN 100*layer::integer+99 ELSE 99 END
