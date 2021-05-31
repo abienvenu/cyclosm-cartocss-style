@@ -808,7 +808,7 @@ Layer:
             ELSE NULL
           END AS mtb_scale_imba,
           CASE
-            WHEN access IN ('no', 'private')
+            WHEN access IN ('no', 'private') AND bicycle NOT IN ('no', 'private') AND tags->'foot' NOT IN ('no', 'private')
               THEN NULL
             ELSE
             CASE
