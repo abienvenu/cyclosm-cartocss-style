@@ -808,13 +808,13 @@ Layer:
             ELSE NULL
           END AS mtb_scale_imba,
           CASE
-            WHEN access IN ('no', 'private') AND bicycle NOT IN ('no', 'private') AND tags->'foot' NOT IN ('no', 'private')
+            WHEN COALESCE(foot, bicycle, access, 'yes') IN ('no', 'private')
               THEN NULL
             ELSE
             CASE
-              WHEN highway IN ('service', 'cycleway') AND smoothness IS NULL
+              WHEN highway IN ('cycleway') AND smoothness IS NULL
                 THEN 'beginner'
-              WHEN highway IN ('footway', 'path') AND surface IN ('asphalt', 'concrete') AND smoothness IS NULL
+              WHEN highway IN ('footway', 'path', 'service') AND surface IN ('asphalt', 'concrete') AND smoothness IS NULL
                 THEN 'beginner'
               WHEN highway IN ('service', 'track', 'bridleway', 'footway', 'path', 'cycleway') AND smoothness IN ('excellent', 'good')
                 THEN 'beginner'
